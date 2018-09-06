@@ -1,7 +1,7 @@
-@model IEnumerable<MvcTiggy.Models.Adventure>
+@model MvcTiggy.Models.AdventureCostViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All Adventures";
 }
 
 <h2>Index</h2>
@@ -9,26 +9,39 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form asp-controller="Adventures" asp-action="Index" method="get">
+<p>
+    <select asp-for="adventureMaxCost" asp-items="Model.CostRanges">
+       <option value="">All</option>
+    </select>
+
+    Search Adventures: <input type="text" name="SearchString" />
+    <input type="submit" value="Search"/>
+</p>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Adventures[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Adventures[0].Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PlannedDate)
+                @Html.DisplayNameFor(model => model.Adventures[0].PlannedDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EstimatedCost)
+                @Html.DisplayNameFor(model => model.Adventures[0].EstimatedCost)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Adventures) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)

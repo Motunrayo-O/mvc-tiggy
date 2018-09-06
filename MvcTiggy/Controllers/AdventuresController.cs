@@ -19,10 +19,47 @@ namespace MvcTiggy.Controllers
         }
 
         // GET: Adventures
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(decimal adventureMaxCost, string searchString)
         {
-            return View(await _context.Adventure.ToListAsync());
+            var adventures = from a in _context.Adventure select a;
+
+            if(!string.IsNullOrEmpty(searchString))
+            {
+                adventures = adventures.Where(a => a.Name.Contains(searchString));
+            }
+
+            if(adventureMaxCost > 0)
+            {
+                var matches = new List<Adventure>();
+                foreach (var item in adventures)
+                {
+                    if (item.EstimatedCost <= adventureMaxCost)
+                    {
+                        matches.Add(item);
+                    }
+                }
+                adventures = adventures.Where(a => a.EstimatedCost == adventureMaxCost);
+
+               
+                var x = adventures.Count();
+                var y = matches.Count();
+            }
+
+            var adventureCostViewModel = new AdventureCostViewModel();
+            adventureCostViewModel.CostRanges = new SelectList(
+                                                    new List<decimal> {300, 1000, 2500, 2000, 5000});
+            adventureCostViewModel.Adventures = await adventures.ToListAsync();
+
+            return View(adventureCostViewModel);
         }
+
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
+        }
+
+
 
         // GET: Adventures/Details/5
         public async Task<IActionResult> Details(int? id)
