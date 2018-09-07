@@ -22,6 +22,7 @@
     <Folder Include="Views\HelloWorld\" />
     <Folder Include="Resources\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Views\Shared\DisplayTemplate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\HelloWorld\Index.cshtml" />
@@ -31,6 +32,7 @@
     <Content Remove="Views\Adventures\Details.cshtml" />
     <Content Remove="Views\Adventures\Edit.cshtml" />
     <Content Remove="Views\Adventures\Index.cshtml" />
+    <Content Remove="Views\Shared\DisplayTemplate\_Enum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\HelloWorld\Welcome.css" />
@@ -48,6 +50,7 @@
     <None Include="Views\Adventures\Details.cshtml" />
     <None Include="Views\Adventures\Edit.cshtml" />
     <None Include="Views\Adventures\Index.cshtml" />
+    <None Include="Views\Shared\DisplayTemplate\Interval.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\southAmerica.jpg">
