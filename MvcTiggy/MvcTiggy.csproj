@@ -50,10 +50,20 @@
     <None Include="Views\Adventures\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\southAmerica.jpg" />
-    <Content Include="Resources\holiday.jpg" />
-    <Content Include="Resources\paris.jpg" />
-    <Content Include="Resources\rayo.jpg" />
-    <Content Include="Resources\user.jpg" />
+    <Content Include="Resources\southAmerica.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\holiday.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\paris.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\rayo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\user.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcTiggy.Models
 {
@@ -19,7 +20,16 @@ namespace MvcTiggy.Models
 
         }
 
+        public  ICollection<AdventureMember> AdventureMembers { get; set; }
         public string About { get; set; }
         public byte[] Image { get; set; }
+    }
+
+    public class AdventureMember
+    {
+        public int AdventureId { get; set; }
+        public Adventure Adventure { get; set; }
+        public int MemberId { get; set; }
+        public Member Member { get; set; }
     }
 }

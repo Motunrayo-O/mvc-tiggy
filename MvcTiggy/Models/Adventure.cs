@@ -23,11 +23,8 @@ namespace MvcTiggy.Models
         public int Duration { get; set; }
         public Interval DurationUnits { get; set; }
 
-        [NotMapped]
-        public List<Member> Members { get; set; }
-
-        [NotMapped]
-        public List<int> MemberIDs { get; set; }
+        public ICollection<AdventureMember> AdventureMembers { get; set; }
+       
 
         [DisplayName("Estimated Cost")]
         [Column(TypeName = "decimal(18, 2)")]

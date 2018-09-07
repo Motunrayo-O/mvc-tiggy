@@ -9,7 +9,7 @@ using MvcTiggy.Models;
 namespace MvcTiggy.Migrations
 {
     [DbContext(typeof(MvcAdventureContext))]
-    [Migration("20180907132402_InitialCreate")]
+    [Migration("20180907182355_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,19 @@ namespace MvcTiggy.Migrations
                     b.ToTable("Adventure");
                 });
 
+            modelBuilder.Entity("MvcTiggy.Models.AdventureMember", b =>
+                {
+                    b.Property<int>("AdventureId");
+
+                    b.Property<int>("MemberId");
+
+                    b.HasKey("AdventureId", "MemberId");
+
+                    b.HasIndex("MemberId");
+
+                    b.ToTable("AdventureMember");
+                });
+
             modelBuilder.Entity("MvcTiggy.Models.Member", b =>
                 {
                     b.Property<int>("ID")
@@ -59,6 +72,19 @@ namespace MvcTiggy.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Members");
+                });
+
+            modelBuilder.Entity("MvcTiggy.Models.AdventureMember", b =>
+                {
+                    b.HasOne("MvcTiggy.Models.Adventure", "Adventure")
+                        .WithMany("AdventureMembers")
+                        .HasForeignKey("AdventureId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MvcTiggy.Models.Member", "Member")
+                        .WithMany("AdventureMembers")
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

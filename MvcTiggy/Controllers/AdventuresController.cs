@@ -40,15 +40,15 @@ namespace MvcTiggy.Controllers
                 }
                 adventures = adventures.Where(a => a.EstimatedCost == adventureMaxCost);
 
-               
-                var x = adventures.Count();
-                var y = matches.Count();
             }
 
             var adventureCostViewModel = new AdventureCostViewModel();
             adventureCostViewModel.CostRanges = new SelectList(
                                                     new List<decimal> {300, 1000, 2500, 2000, 5000});
-            adventureCostViewModel.Adventures = await adventures.ToListAsync();
+            adventureCostViewModel.Adventures = await adventures.
+                                       Include(adventure => adventure.AdventureMembers)
+                                       .ThenInclude(adventure => adventure.Member)
+                                    .ToListAsync();
 
             return View(adventureCostViewModel);
         }

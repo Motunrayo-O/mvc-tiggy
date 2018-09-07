@@ -41,10 +41,42 @@ namespace MvcTiggy.Migrations
                 {
                     table.PrimaryKey("PK_Members", x => x.ID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "AdventureMember",
+                columns: table => new
+                {
+                    AdventureId = table.Column<int>(nullable: false),
+                    MemberId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdventureMember", x => new { x.AdventureId, x.MemberId });
+                    table.ForeignKey(
+                        name: "FK_AdventureMember_Adventure_AdventureId",
+                        column: x => x.AdventureId,
+                        principalTable: "Adventure",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AdventureMember_Members_MemberId",
+                        column: x => x.MemberId,
+                        principalTable: "Members",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AdventureMember_MemberId",
+                table: "AdventureMember",
+                column: "MemberId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AdventureMember");
+
             migrationBuilder.DropTable(
                 name: "Adventure");
 

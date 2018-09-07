@@ -63,7 +63,7 @@
                 <p>@item.Duration @item.DurationUnits</p>
             </td>
             <td>
-                <p>@(item.MemberIDs == null ? 0 : item.MemberIDs?.Count()) Members</p>
+                <p>@(item.AdventureMembers == null ? 0 : item.AdventureMembers.Count()) Members</p>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EstimatedCost)
