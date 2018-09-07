@@ -10,10 +10,8 @@ namespace MvcTiggy.Models
         {
         }
 
-        public DbSet<Adventure> Adventure
-        {
-            get;
-            set;
-        }
+        public DbSet<Adventure> Adventure { get; set; }
+        public DbSet<Member> Members { get; set; }
+
     }
 }

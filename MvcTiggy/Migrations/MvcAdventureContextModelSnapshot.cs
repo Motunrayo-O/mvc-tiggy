@@ -23,7 +23,14 @@ namespace MvcTiggy.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<decimal>("EstimatedCost");
+                    b.Property<int>("Duration");
+
+                    b.Property<int>("DurationUnits");
+
+                    b.Property<decimal>("EstimatedCost")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<byte[]>("Image");
 
                     b.Property<string>("Name");
 
@@ -32,6 +39,24 @@ namespace MvcTiggy.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Adventure");
+                });
+
+            modelBuilder.Entity("MvcTiggy.Models.Member", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("About");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<byte[]>("Image");
+
+                    b.Property<string>("LastName");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Members");
                 });
 #pragma warning restore 612, 618
         }

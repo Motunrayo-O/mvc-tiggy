@@ -20,6 +20,8 @@
 
   <ItemGroup>
     <Folder Include="Views\HelloWorld\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\HelloWorld\Index.cshtml" />
@@ -32,6 +34,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\HelloWorld\Welcome.css" />
+    <None Remove="Resources\southAmerica.jpg" />
+    <None Remove="Resources\holiday.jpg" />
+    <None Remove="Resources\paris.jpg" />
+    <None Remove="Resources\rayo.jpg" />
+    <None Remove="Resources\user.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\HelloWorld\Index.cshtml" />
@@ -41,5 +48,12 @@
     <None Include="Views\Adventures\Details.cshtml" />
     <None Include="Views\Adventures\Edit.cshtml" />
     <None Include="Views\Adventures\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\southAmerica.jpg" />
+    <Content Include="Resources\holiday.jpg" />
+    <Content Include="Resources\paris.jpg" />
+    <Content Include="Resources\rayo.jpg" />
+    <Content Include="Resources\user.jpg" />
   </ItemGroup>
 </Project>

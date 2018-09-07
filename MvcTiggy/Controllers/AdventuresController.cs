@@ -90,7 +90,8 @@ namespace MvcTiggy.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Description,PlannedDate,EstimatedCost")] Adventure adventure)
+        public async Task<IActionResult> Create(
+            [Bind("ID,Name,Description,PlannedDate,Duration,DurationUnits,MemberIDs,Image,EstimatedCost")] Adventure adventure)
         {
             if (ModelState.IsValid)
             {
@@ -122,7 +123,8 @@ namespace MvcTiggy.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,PlannedDate,EstimatedCost")] Adventure adventure)
+        public async Task<IActionResult> Edit(int id, 
+               [Bind("ID,Name,Description,PlannedDate,Duration,DurationUnits,MemberIDs,Image,EstimatedCost")] Adventure adventure)
         {
             if (id != adventure.ID)
             {

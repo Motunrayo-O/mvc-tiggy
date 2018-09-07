@@ -25,6 +25,7 @@
 <table class="table">
     <thead>
         <tr>
+           
             <th>
                 @Html.DisplayNameFor(model => model.Adventures[0].Name)
             </th>
@@ -33,6 +34,12 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Adventures[0].PlannedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adventures[0].Duration)
+            </th>
+            <th>
+                Holiday Makers
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Adventures[0].EstimatedCost)
@@ -51,6 +58,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PlannedDate)
+            </td>
+            <td>
+                <p>@item.Duration @item.DurationUnits</p>
+            </td>
+            <td>
+                <p>@(item.MemberIDs == null ? 0 : item.MemberIDs?.Count()) Members</p>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EstimatedCost)
