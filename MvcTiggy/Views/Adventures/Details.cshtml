@@ -29,6 +29,23 @@
             @Html.DisplayFor(model => model.PlannedDate)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Duration) @Html.DisplayFor(model => model.DurationUnits)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AdventureMembers)
+        </dt>
+        <dd>
+            @foreach(var member in Model.AdventureMembers)
+            {
+                <a asp-controller="Members" 
+                asp-action="Details" 
+                asp-route-id="@member.MemberId">@member.Member?.FullName</a><br/>
+            }
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.EstimatedCost)
         </dt>
         <dd>

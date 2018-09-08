@@ -69,8 +69,9 @@ namespace MvcTiggy.Controllers
                 return NotFound();
             }
 
-            var adventure = await _context.Adventure
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var adventure = await _context.Adventure.Include(m => m.AdventureMembers)
+                                          .ThenInclude(adventureMAmber => adventureMAmber.Member)
+                                          .FirstOrDefaultAsync(m => m.ID == id);
             if (adventure == null)
             {
                 return NotFound();

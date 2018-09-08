@@ -147,7 +147,7 @@ namespace MvcTiggy.Models
             {
                 return System.IO.File.ReadAllBytes(path);
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }
