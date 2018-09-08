@@ -32,6 +32,17 @@ namespace MvcTiggy.Models
 
         public byte[] Image { get; set; }
 
+        [NotMapped]
+        public string ImageSource
+        {
+            get
+            {
+                string mimeType = "image/jpeg";
+                string base64 = Convert.ToBase64String(Image);
+                return string.Format("data:{0};base64,{1}", mimeType, base64);
+            }
+        }
+
         #endregion
     }
 }

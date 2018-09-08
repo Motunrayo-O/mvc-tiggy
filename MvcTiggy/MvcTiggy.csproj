@@ -41,6 +41,7 @@
     <None Remove="Resources\paris.jpg" />
     <None Remove="Resources\rayo.jpg" />
     <None Remove="Resources\user.jpg" />
+    <None Remove="Views\Shared\Util\HtmlExtensions.css" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\HelloWorld\Index.cshtml" />
@@ -68,5 +69,8 @@
     <Content Include="Resources\user.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Shared\Util\HtmlExtensions.cs" />
   </ItemGroup>
 </Project>

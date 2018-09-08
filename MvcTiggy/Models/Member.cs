@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcTiggy.Models
@@ -23,13 +24,16 @@ namespace MvcTiggy.Models
         public  ICollection<AdventureMember> AdventureMembers { get; set; }
         public string About { get; set; }
         public byte[] Image { get; set; }
-    }
 
-    public class AdventureMember
-    {
-        public int AdventureId { get; set; }
-        public Adventure Adventure { get; set; }
-        public int MemberId { get; set; }
-        public Member Member { get; set; }
+        [NotMapped]
+        public string ImageSource
+        {
+            get
+            {
+                string mimeType = "image/jpeg";
+                string base64 = Convert.ToBase64String(Image);
+                return string.Format("data:{0};base64,{1}", mimeType, base64);
+            }
+        }
     }
 }
